@@ -1,0 +1,35 @@
+#relay-chat {
+    .relay-chat-container {
+        position: fixed;
+        display: none;
+        bottom: 12px;
+        right: 12px;
+        width: 340px;
+        height: 480px;
+        padding: 16px 24px;
+        border-radius: 12px;
+        background: teal;
+
+        &.active {
+            display: block;
+        }
+
+        .relay-close-btn {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            color: white;
+
+        }
+    }
+
+    .relay-activator {
+        position: fixed;
+        bottom: 12px;
+        right: 12px;
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        background: teal;
+    }
+}
