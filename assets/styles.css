@@ -1,25 +1,100 @@
 #relay-chat {
+    font-family: Inter, sans-serif;
+
     .relay-chat-container {
         position: fixed;
         display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 2px 2px 12px black;
         bottom: 12px;
         right: 12px;
         width: 340px;
         height: 480px;
-        padding: 16px 24px;
         border-radius: 12px;
-        background: teal;
+        overflow: hidden;
 
         &.active {
-            display: block;
+            display: flex;
+        }
+
+        .relay-header {
+            padding: 8px 16px;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            background: teal;
         }
 
         .relay-close-btn {
             width: 24px;
             height: 24px;
             cursor: pointer;
-            color: white;
+        }
 
+        .relay-chat-messages {
+            overflow-y: auto;
+            background: white;
+            height: 100%;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .relay-chat-message {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: fit-content;
+                padding: 12px;
+                border-radius: 4px;
+                background: #e9e9eb;
+
+                .relay-chat-message-author {
+                    color: #acacac;
+                    font-size: 14px;
+                }
+
+                p {
+                    margin: 0;
+                }
+
+                &.client-variant {
+                    background: #057eff;
+                    color: #fff;
+                    align-self: end;
+
+                    .relay-chat-message-author {
+                        color: #f1f1f1;
+                    }
+                }
+            }
+        }
+
+        .relay-chat-actions {
+            display: flex;
+            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            border-top: 1px solid #acacac;
+            background: #fff;
+
+            textarea {
+                font-family: Inter, sans-serif;
+                width: 100%;
+                border-radius: 8px;
+                resize: none;
+                padding: 4px 8px;
+            }
+
+            .relay-send-btn {
+                cursor: pointer;
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 
@@ -32,4 +107,4 @@
         border-radius: 12px;
         background: teal;
     }
-}
+=}
