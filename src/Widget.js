@@ -27,12 +27,12 @@ class Widget {
 
             const msg = JSON.parse(event.data ?? "")
 
-        if (relayChatToken) {
-            const tokenValue = relayChatToken.split('=')[1];
-            console.log(tokenValue);
-        } else {
-            createChat(this.organizationId)
-        }
+            if (msg.type === "error") {
+                if (msg.data.message === "token-expired") {
+                    await createChat(this.organizationId)
+                    this.#connectToWebSocket()
+                }
+            }
 
             if (msg.type === "history") {
                 // TODO
