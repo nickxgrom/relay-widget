@@ -29,7 +29,10 @@ class Widget {
 
             if (msg.type === "error") {
                 if (msg.data.message === "token-expired") {
-                    await createChat(this.organizationId)
+                    const {token} = await createChat(this.organizationId)
+
+                    localStorage.setItem("relay-chat-token", token)
+
                     this.#connectToWebSocket()
                 }
             }
