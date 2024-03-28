@@ -7,6 +7,7 @@ class Widget {
     constructor(container, organizationId) {
         this.container = container
         this.organizationId = organizationId
+        this.messageContainer = null
 
         this.#initializeWidget()
     }
@@ -38,18 +39,22 @@ class Widget {
             }
 
             if (msg.type === "history") {
-                // TODO
+                const messages = msg.data
+
+                messages.forEach(message => {
+                    this.#appendMessage(message)
+                })
             }
 
             if (msg.type === "message") {
-                console.log(msg)
-                // TODO
+                this.#appendMessage(msg.data)
             }
          }
     }
 
     async #initializeWidget() {
         this.container.innerHTML = markup
+        this.messageContainer = document.getElementById("relay-chat-messages")
 
         this.#bindEventListeners()
     }
@@ -79,6 +84,23 @@ class Widget {
                 chatContainer.classList.remove("active")
             }
         })
+    }
+
+    #appendMessage(message) {
+        const messageElement = document.createElement("div")
+        messageElement.classList.add("relay-chat-message")
+
+        if (message.sender === 2) {
+            messageElement.classList.add("client-variant")
+        }
+
+        // TODO: add message creation time
+        messageElement.innerHTML = `<div class="relay-chat-message-author">
+                                        ${message.sender}
+                                    </div>
+                                    <p>${message.text}</p>`
+
+        this.messageContainer.append(messageElement)
     }
 }
 

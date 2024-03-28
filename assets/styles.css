@@ -34,7 +34,7 @@
             cursor: pointer;
         }
 
-        .relay-chat-messages {
+        #relay-chat-messages {
             overflow-y: auto;
             background: white;
             height: 100%;

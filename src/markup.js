@@ -12,23 +12,8 @@ const markup = `
             </div>        
         </div>
         
-        <div class="relay-chat-messages">
-<!--        Example-->
-            <div class="relay-chat-message">
-                <div class="relay-chat-message-author">
-                    Some operator
-                </div>
-                <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            
-            <div class="relay-chat-message client-variant">
-                <div class="relay-chat-message-author">
-                    You
-                </div>
-                <p>Lorem ipsum dolor sit amet</p>
-            </div>
+        <div id="relay-chat-messages">
         </div>
-<!--    Example-->
         
         <div class="relay-chat-actions">
             <textarea name="relay-user-input" id="" rows="3"></textarea>
